@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Panamá - Resumen de Ventas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-chart-bar"></i> Resumen de Ventas</h1>
+                <p>Concierto en el Estadio Roberto Durán</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Resumen General -->
+            <section class="summary-section">
+                <h2><i class="fas fa-chart-pie"></i> Resumen General</h2>
+                <div class="summary-grid">
+                    <div class="summary-card total">
+                        <div class="summary-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-item">
+                                <span class="summary-label">Total de Boletos Vendidos</span>
+                                <span class="summary-value" id="totalBoletos">0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Total Recaudado</span>
+                                <span class="summary-value money" id="totalDinero">$0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Total de Ventas</span>
+                                <span class="summary-value" id="totalVentas">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resumen por Categoría -->
+            <section class="category-summary">
+                <h2><i class="fas fa-list-alt"></i> Resumen por Categoría</h2>
+                <div class="category-stats">
+                    <div class="stat-card vip">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>VIP</h3>
+                            <span class="stat-price">$50.00 c/u</span>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-item">
+                                <span class="stat-label">Boletos Vendidos</span>
+                                <span class="stat-value" id="vipCantidad">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Recaudado</span>
+                                <span class="stat-value money" id="vipTotal">$0.00</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Porcentaje del Total</span>
+                                <span class="stat-value percentage" id="vipPorcentaje">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card butacas">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-chair"></i>
+                            </div>
+                            <h3>Butacas</h3>
+                            <span class="stat-price">$30.00 c/u</span>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-item">
+                                <span class="stat-label">Boletos Vendidos</span>
+                                <span class="stat-value" id="butacasCantidad">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Recaudado</span>
+                                <span class="stat-value money" id="butacasTotal">$0.00</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Porcentaje del Total</span>
+                                <span class="stat-value percentage" id="butacasPorcentaje">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card general">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>General</h3>
+                            <span class="stat-price">$15.00 c/u</span>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-item">
+                                <span class="stat-label">Boletos Vendidos</span>
+                                <span class="stat-value" id="generalCantidad">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Recaudado</span>
+                                <span class="stat-value money" id="generalTotal">$0.00</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Porcentaje del Total</span>
+                                <span class="stat-value percentage" id="generalPorcentaje">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navegación -->
+            <section class="navigation">
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-arrow-left"></i> Volver a Venta
+                </a>
+                <button id="limpiarDatos" class="btn-secondary">
+                    <i class="fas fa-trash"></i> Limpiar Todos los Datos
+                </button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Eventos Panamá. Todos los derechos reservados.</p>
+                <div class="footer-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Estadio Roberto Durán, Panamá</span>
+                    <span><i class="fas fa-phone"></i> +507 800-EVENTOS</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="resumen.js"></script>
+</body>
+</html>

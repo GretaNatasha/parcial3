@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Panamá - Venta de Boletos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-ticket-alt"></i> Eventos Panamá</h1>
+                <p>Concierto Exclusivo - Estadio Roberto Durán</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Sección de Categorías -->
+            <section class="categories-section">
+                <h2><i class="fas fa-crown"></i> Categorías de Boletos</h2>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="vip">
+                        <div class="card-header vip">
+                            <i class="fas fa-star"></i>
+                            <h3>Puestos VIP</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="price">$50.00</p>
+                            <p class="description">Experiencia premium con los mejores asientos y beneficios exclusivos</p>
+                            <div class="features">
+                                <span><i class="fas fa-check"></i> Asientos preferenciales</span>
+                                <span><i class="fas fa-check"></i> Acceso VIP</span>
+                                <span><i class="fas fa-check"></i> Estacionamiento</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="butacas">
+                        <div class="card-header butacas">
+                            <i class="fas fa-chair"></i>
+                            <h3>Puestos Butacas</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="price">$30.00</p>
+                            <p class="description">Asientos cómodos con excelente visibilidad al escenario</p>
+                            <div class="features">
+                                <span><i class="fas fa-check"></i> Vista privilegiada</span>
+                                <span><i class="fas fa-check"></i> Comodidad garantizada</span>
+                                <span><i class="fas fa-check"></i> Zona cubierta</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="general">
+                        <div class="card-header general">
+                            <i class="fas fa-users"></i>
+                            <h3>Puestos Generales</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="price">$15.00</p>
+                            <p class="description">Acceso general con ambiente festivo y energía única</p>
+                            <div class="features">
+                                <span><i class="fas fa-check"></i> Ambiente vibrante</span>
+                                <span><i class="fas fa-check"></i> Precio accesible</span>
+                                <span><i class="fas fa-check"></i> Zona de baile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulario de Venta -->
+            <section class="form-section">
+                <h2><i class="fas fa-shopping-cart"></i> Realizar Compra</h2>
+                <form id="ventaForm" class="venta-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">
+                                <i class="fas fa-user"></i> Nombre Completo
+                            </label>
+                            <input type="text" id="nombre" placeholder="Ingrese su nombre completo" required>
+                            <span class="form-hint">Ej: María González Pérez</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Correo Electrónico
+                            </label>
+                            <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+                            <span class="form-hint">Recibirá su confirmación aquí</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">
+                                <i class="fas fa-phone"></i> Teléfono / Celular
+                            </label>
+                            <input type="tel" id="telefono" placeholder="+507 6000 0000" required>
+                            <span class="form-hint">Para contactarlo si es necesario</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoria">
+                                <i class="fas fa-tags"></i> Categoría
+                            </label>
+                            <select id="categoria" required>
+                                <option value="">Seleccione una categoría</option>
+                                <option value="vip">Puestos VIP - $50.00</option>
+                                <option value="butacas">Puestos Butacas - $30.00</option>
+                                <option value="general">Puestos Generales - $15.00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                     <!-- Selector de cantidad moderno -->
+                        <div class="form-group quantity-selector">
+                            <label>
+                                <i class="fas fa-ticket"></i> Cantidad de Boletos
+                            </label>
+                            <div class="quantity-controls">
+                                <button type="button" class="quantity-btn minus" onclick="adjustQuantity(-1)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" id="cantidad" value="1" min="1" class="no-spinner">
+                                <button type="button" class="quantity-btn plus" onclick="adjustQuantity(1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="quantity-info">
+                                <span id="precioUnitario">Precio unitario: $0.00</span>
+                                <span id="precioTotal">Total: $0.00</span>
+                            </div>
+                        </div>
+
+                    <!-- Resumen de compra -->
+                    <div class="purchase-summary" id="purchaseSummary">
+                        <h3><i class="fas fa-receipt"></i> Resumen de Compra</h3>
+                        <div class="summary-content">
+                            <div class="summary-item">
+                                <span>Categoría:</span>
+                                <span id="summaryCategoria">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Cantidad:</span>
+                                <span id="summaryCantidad">0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Precio Unitario:</span>
+                                <span id="summaryPrecioUnitario">$0.00</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Total a Pagar:</span>
+                                <span id="summaryTotal">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-credit-card"></i> Confirmar Compra
+                    </button>
+                </form>
+            </section>
+
+            <!-- Ventas Recientes -->
+            <section class="recent-sales">
+                <h2><i class="fas fa-history"></i> Compras Recientes</h2>
+                <div id="ventasList" class="ventas-list">
+                    <div class="empty-state">
+                        <i class="fas fa-shopping-bag"></i>
+                        <p>No hay compras recientes</p>
+                        <small>Las compras aparecerán aquí</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navegación -->
+            <section class="navigation">
+                <a href="resumen.html" class="btn-secondary">
+                    <i class="fas fa-chart-bar"></i> Ver Resumen Completo
+                </a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Eventos Panamá. Todos los derechos reservados.</p>
+                <div class="footer-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Estadio Roberto Durán, Panamá</span>
+                    <span><i class="fas fa-phone"></i> +507 800-EVENTOS</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="venta.js"></script>
+</body>
+</html>
